@@ -1,0 +1,39 @@
+{
+  "name": "nextjs-styled-components-starter",
+  "version": "1.0.0",
+  "description": "Server side rendering Styled Components with Next.js",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "^10.1.0",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
+    "styled-components": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.3",
+    "@types/styled-components": "^5.1.9",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
+    "babel-plugin-styled-components": "^1.8.0",
+    "eslint": "^7.24.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.23.2",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "prettier": "^2.0.5",
+    "typescript": "^4.2.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/koalamango/nextjs-style-components-starter.git"
+  },
+  "homepage": "https://github.com/koalamango/nextjs-style-components-starter",
+  "author": "Jessie W.",
+  "license": "MIT"
+}
