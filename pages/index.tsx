@@ -1,48 +1,113 @@
 import React from 'react'
 import Head from 'next/head'
-import Link from 'next/link'
 import styled from 'styled-components'
+import get from 'lodash/get'
+import {
+  Form,
+  Input,
+  Button,
+} from 'antd'
+
+import {
+  BigTitle01,
+  Headline,
+  SubHeadline,
+  ButtonLabel,
+} from '../components/base/Typo'
 
 const Container = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-  overflow: hidden;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
-  .hidden-button {
-    padding: 0;
-    border: 0;
-    margin: 0;
-    background-color: unset;
+  .title {
+    text-align: center;
   }
 
-  .text-link {
-    color: blue;
-    font-size: 16px;
-    text-decoration: underline;
+  li > p.description {
+    display: inline-flex;
   }
 `
 
-const Home = () => (
-  <>
-    <Head>
-      <title>SSR styled-components with Next.js Starter</title>
-    </Head>
+const Home = () => {
+  const name = 'Example'
+  return (
+    <>
+      <Head>
+        <title>Website điểm danh môn tin học - Trường THPT Nguyễn Công Trứ</title>
+      </Head>
 
-    <Container>
-      <h1>Hello, world!</h1>
+      <Container>
+        <BigTitle01
+          as="h1"
+          className="title color--darkness"
+        >
+          {`Điểm danh lớp ${name}`}
+        </BigTitle01>
 
-      <p>
-        {'Read '}
+        <ul className="description">
+          <Headline className="description color--darkness">
+            Lưu ý
+          </Headline>
 
-        <Link href="/posts/first-post">
-          <button type="button" className="hidden-button">
-            <span className="text-link">this page!</span>
-          </button>
-        </Link>
-      </p>
-    </Container>
-  </>
-)
+          <li>
+            <SubHeadline className="description color--darkness">
+              Học sinh ngồi vào đúng số máy của mình
+            </SubHeadline>
+          </li>
+
+          <li>
+            <SubHeadline className="description color--darkness">
+              Nhập đầy đủ họ tên vào ô bên dưới và nhấn ĐIỂM DANH để thực hiện điểm danh vào lớp
+            </SubHeadline>
+          </li>
+
+          <li>
+            <SubHeadline className="description color--darkness">
+              Học sinh chỉ có thể điểm danh DUY NHẤT 1 LẦN. Không điểm danh hộ bạn bè mình.
+            </SubHeadline>
+          </li>
+        </ul>
+
+        <Form
+          name="attendant-form"
+          onFinish={null}
+        >
+          <Form.Item
+            label="Họ tên"
+            name="name"
+            rules={[
+              {
+                required: true,
+                message: 'Vui lòng nhập họ và tên học sinh',
+              },
+              {
+                validator: (_, value: string = '') => {
+                  const regexName = /[\u00C0-\u1EF9a-zA-Z]{2,}( [\u00C0-\u1EF9a-zA-Z]{2,})+/g
+                  const regexMatch: string = get(value.match(regexName), '[0]')
+                  if (!value || (regexMatch && regexMatch.length === value.length)) {
+                    return Promise.resolve()
+                  }
+
+                  return Promise.reject(new Error('Tên không đúng định dạng'))
+                },
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+
+          <Form.Item>
+            <Button type="primary" htmlType="submit">
+              <ButtonLabel className="color--white">
+                ĐIỂM DANH
+              </ButtonLabel>
+            </Button>
+          </Form.Item>
+        </Form>
+      </Container>
+    </>
+  )
+}
 
 export default Home

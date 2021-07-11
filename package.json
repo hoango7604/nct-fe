@@ -1,7 +1,7 @@
 {
-  "name": "nextjs-styled-components-starter",
+  "name": "nct-diem-danh-fe",
   "version": "1.0.0",
-  "description": "Server side rendering Styled Components with Next.js",
+  "description": "Project made for my beloved teacher - Ms. Phuong Kim",
   "main": "index.js",
   "scripts": {
     "dev": "next",
@@ -9,12 +9,15 @@
     "start": "next start"
   },
   "dependencies": {
+    "antd": "^4.16.5",
+    "lodash": "^4.17.21",
     "next": "^10.1.0",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
     "styled-components": "^5.0.0"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.171",
     "@types/react": "^17.0.3",
     "@types/styled-components": "^5.1.9",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
@@ -31,9 +34,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/koalamango/nextjs-style-components-starter.git"
+    "url": "https://github.com/hoango7604/nct-fe.git"
   },
-  "homepage": "https://github.com/koalamango/nextjs-style-components-starter",
-  "author": "Jessie W.",
+  "author": "Hoa Ngo",
   "license": "MIT"
 }
