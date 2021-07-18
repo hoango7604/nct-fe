@@ -1,5 +1,10 @@
 import React from 'react'
-import Document, { DocumentContext } from 'next/document'
+import Document, {
+  DocumentContext,
+  Head,
+  Main,
+  NextScript,
+} from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
 
 export default class MyDocument extends Document {
@@ -26,5 +31,29 @@ export default class MyDocument extends Document {
     } finally {
       sheet.seal()
     }
+  }
+
+  render() {
+    return (
+      <html lang="vi">
+        <Head>
+          {/**
+            * Extend lazyload lib for background images
+            * ref: https://github.com/aFarkas/lazysizes#js-api---events
+            */}
+          <script async src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.0/plugins/unveilhooks/ls.unveilhooks.min.js" />
+          <script async src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.0/lazysizes.min.js" />
+
+          {/* Material icon */}
+          <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet" />
+        </Head>
+
+        <body>
+          <Main />
+
+          <NextScript />
+        </body>
+      </html>
+    )
   }
 }
