@@ -1,0 +1,44 @@
+const theme = {
+  PRIMARY: {
+    VEX_BLUE: '#2474E5',
+    VEX_BLUE_LIGHT: '#7FAEF0',
+    VEX_BLUE_LIGHTEST: '#EDF3FD',
+    VEX_YELLOW: '#FFD333',
+    VEX_YELLOW_LIGHT: '#FFE485',
+    VEX_YELLOW_LIGHTEST: '#FFF6D6',
+  },
+  ACCENT: {
+    VEX_D_BLUE: '#061B37',
+    VEX_D_BLUE_LIGHTER: '#0A2E5C',
+  },
+  SEMANTIC: {
+    INFORMATION: '#2F80ED',
+    INFORMATION_LIGHT: '#85BBF5',
+    INFORMATION_LIGHTEST: '#ECF4FD',
+    POSITIVE: '#27AE60',
+    POSITIVE_LIGHT: '#8BE5B0',
+    POSITIVE_LIGHTEST: '#EEFBF4',
+    CRITICAL: '#FFC52F',
+    CRITICAL_LIGHT: '#FBE19D',
+    CRITICAL_LIGHTEST: '#FEF9EB',
+    NEGATIVE: '#EB5757',
+    NEGATIVE_LIGHT: '#F4A4A4',
+    NEGATIVE_LIGHTEST: '#FDEDED',
+  },
+  NEUTRAL: {
+    DARKNESS: '#141414',
+    DARK: '#474747',
+    MEDIUM_SUB: '#858585',
+    LIGHTEST_BG: '#F7F7F7',
+    LIGHTER_BORDER: '#E0E0E0',
+    LIGHT_DISABLE: '#B8B8B8',
+  },
+  OTHER: {
+    BLACK: 'black',
+    WHITE: 'white',
+  },
+}
+
+export type ThemeType = typeof theme
+
+export default theme
