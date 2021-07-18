@@ -1,6 +1,7 @@
 import React from 'react'
 import Document, {
   DocumentContext,
+  Html,
   Head,
   Main,
   NextScript,
@@ -35,7 +36,7 @@ export default class MyDocument extends Document {
 
   render() {
     return (
-      <html lang="vi">
+      <Html lang="vi">
         <Head>
           {/**
             * Extend lazyload lib for background images
@@ -53,7 +54,7 @@ export default class MyDocument extends Document {
 
           <NextScript />
         </body>
-      </html>
+      </Html>
     )
   }
 }
