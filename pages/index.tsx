@@ -1,48 +1,107 @@
 import React from 'react'
 import Head from 'next/head'
-import Link from 'next/link'
 import styled from 'styled-components'
 
-const Container = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-  overflow: hidden;
-  text-align: center;
+import Icon from '../components/base/Icon'
+import {
+  BigTitle01,
+  Body01,
+  Heading01,
+} from '../components/base/Typo'
+import AttendantForm from '../components/AttendantForm'
 
-  .hidden-button {
-    padding: 0;
-    border: 0;
-    margin: 0;
-    background-color: unset;
+const Container = styled.div`
+  width: 980px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 96px;
+  margin-left: auto;
+  margin-right: auto;
+
+  .title-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 64px;
   }
 
-  .text-link {
-    color: blue;
-    font-size: 16px;
-    text-decoration: underline;
+  .title-icon {
+    margin-right: 16px;
+  }
+
+  .description {
+    margin-bottom: 48px;
+  }
+
+  .note {
+    margin-bottom: 8px;
+  }
+
+  .note-item:not(:last-child) {
+    margin-bottom: 4px;
+  }
+
+  .attended-title {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  .attended-content {
+    display: flex;
+    justify-content: center;
   }
 `
 
-const Home = () => (
-  <>
-    <Head>
-      <title>SSR styled-components with Next.js Starter</title>
-    </Head>
+const Home = () => {
+  const attendantClassName = 'Example class name'
+  const studentName = 'Example student name'
+  const isAttended = true
 
-    <Container>
-      <h1>Hello, world!</h1>
+  return (
+    <>
+      <Head>
+        <title>Website điểm danh môn tin học - Trường THPT Nguyễn Công Trứ</title>
+      </Head>
 
-      <p>
-        {'Read '}
+      <Container className="attendant-form-container">
+        <div className="title-container">
+          <Icon
+            className="title-icon"
+            iconName="fact_check"
+            iconType="rounded"
+            iconClass="color--positive"
+            size="xxl"
+          />
 
-        <Link href="/posts/first-post">
-          <button type="button" className="hidden-button">
-            <span className="text-link">this page!</span>
-          </button>
-        </Link>
-      </p>
-    </Container>
-  </>
-)
+          <BigTitle01
+            as="h1"
+            className="title color--positive"
+          >
+            {`Điểm danh lớp ${attendantClassName}`}
+          </BigTitle01>
+        </div>
+
+        {isAttended
+          ? (
+            <>
+              <Heading01 className="attended-title">
+                {`Bạn đã điểm danh cho ca này với tên ${studentName}`}
+              </Heading01>
+
+              <Body01 className="attended-content">
+                Nếu có sai sót, vui lòng liên hệ giáo viên đứng lớp để được hỗ trợ.
+              </Body01>
+            </>
+          )
+          : (
+            <AttendantForm />
+          )
+        }
+      </Container>
+    </>
+  )
+}
 
 export default Home

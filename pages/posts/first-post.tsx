@@ -33,13 +33,16 @@ const FirstPost = () => (
     <Container>
       <h1>First Post</h1>
 
-      <p>
-        <Link href="/">
-          <button type="button" className="hidden-button">
+      <button
+        type="button"
+        className="hidden-button"
+      >
+        <p>
+          <Link href="/">
             <span className="text-link">Back to home</span>
-          </button>
-        </Link>
-      </p>
+          </Link>
+        </p>
+      </button>
 
       <Image
         src="/images/profile.jpeg"
