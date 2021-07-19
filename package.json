@@ -9,11 +9,13 @@
     "start": "next start"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.6.1",
     "antd": "^4.16.5",
     "lodash": "^4.17.21",
     "next": "^10.1.0",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
+    "react-redux": "^7.2.4",
     "styled-components": "^5.0.0"
   },
   "devDependencies": {

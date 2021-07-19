@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { AppProps } from 'next/app'
+import { Provider } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import 'antd/dist/antd.css'
 
+import store from '../store/index'
 import GlobalStyle from '../styles/global.style'
 import theme from '../styles/theme.style'
 
@@ -30,11 +32,13 @@ const App = ({ Component, pageProps } : AppProps) => {
   useEffect(fetchIconsCssFiles, [])
 
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle isLoaded={isLoaded} />
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle isLoaded={isLoaded} />
 
-      <Component {...pageProps} />
-    </ThemeProvider>
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </Provider>
   )
 }
 
